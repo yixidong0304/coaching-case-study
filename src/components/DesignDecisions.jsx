@@ -1,31 +1,61 @@
 import DecisionFigure, { mediaFromFile } from './DecisionFigure'
 
-const BEFORE = [
-  'Watched frameworks explained',
-  'Dense explanatory slides',
-  'Presenter-controlled pace',
-  'Facilitator-dependent experience',
-  'Few post-session resources',
-]
-
-const AFTER = [
-  'Practices frameworks through decisions',
-  'Progressive, single-focus screens',
-  'Learner-controlled and resumable',
-  'Standardized experience',
-  'Downloadable job aids',
+const REDESIGN_THEMES = [
+  {
+    id: 'access',
+    label: 'Access',
+    before: [
+      'Two-hour scheduled session',
+      'Presenter-controlled pace',
+      'Repeated for every cohort',
+    ],
+    after: [
+      '30-minute, on-demand module',
+      'Self-paced and resumable',
+      'Available consistently across cohorts and time zones',
+    ],
+  },
+  {
+    id: 'learning',
+    label: 'Learning experience',
+    before: [
+      'Dense explanatory slides',
+      'Watching frameworks being presented',
+      'Few opportunities to make decisions or practice',
+    ],
+    after: [
+      'Progressive, single-focus screens',
+      'Guided examples followed by active practice',
+      'Decisions, specific feedback, and opportunities to try again',
+    ],
+  },
+  {
+    id: 'transfer',
+    label: 'Workplace transfer',
+    before: [
+      'Few resources after the workshop',
+      'Learning ends when the session ends',
+    ],
+    after: [
+      'Downloadable framework cards',
+      'Reusable support for real coaching conversations',
+    ],
+  },
 ]
 
 const DECISIONS = [
   {
     number: '01',
     title: 'Progressive framework reveal',
-    lead: 'The original deck taught OSCAR and GROW as dense single slides, every step and all its guidance at once, and demonstrated OSCAR through a wall of example dialogue. The redesign rebuilds both as interactive reveals: one component at a time, guidance on demand, and a worked example that accumulates line by line instead of arriving all at once.',
+    lead: 'The original workshop presented each framework and its guidance all at once. The redesign reveals one step at a time, pairing focused guidance with a conversation that develops as the learner advances.',
     outcome:
-      'Learners watch a coaching conversation develop instead of memorizing five isolated labels.',
+      'Learners see how a coaching framework becomes a conversation—not just a set of labels to memorize.',
     figures: [
       {
-        type: 'pair',
+        type: 'stack',
+        beforeLead: 'Everything appeared at once.',
+        beforeBody:
+          'The original slide showed all five OSCAR components simultaneously, leaving learners to identify the structure themselves. The redesign focuses attention on one step at a time. Guidance appears in context as learners explore each step.',
         before: mediaFromFile('before-oscar-slide.png', {
           label: 'Original OSCAR slide',
           alt: 'Original instructor-led OSCAR diagram slide showing every step at once',
@@ -34,11 +64,12 @@ const DECISIONS = [
           label: 'OSCAR interactive reveal',
           alt: 'Redesigned eLearning OSCAR step reveal, one component at a time',
         }),
-        caption:
-          'Reads a completed diagram → explores each OSCAR step on demand',
       },
       {
-        type: 'pair',
+        type: 'stack',
+        beforeLead: 'The example arrived fully formed.',
+        beforeBody:
+          'The original slide placed guidance and a complete conversation on one screen, making it difficult to connect each line to a step. The redesign builds the conversation progressively. Each coaching move is added at the moment its framework step is introduced.',
         before: mediaFromFile('before-oscar-example.png', {
           label: 'Original OSCAR example slide',
           alt: 'Original instructor-led slide with a wall of OSCAR example dialogue',
@@ -47,11 +78,12 @@ const DECISIONS = [
           label: 'OSCAR step-through conversation',
           alt: 'Redesigned eLearning OSCAR conversation building line by line',
         }),
-        caption:
-          'A wall of example dialogue on one slide → the same conversation, revealed line by line as the learner advances',
       },
       {
-        type: 'pair',
+        type: 'stack',
+        beforeLead: 'Four stages competed for attention.',
+        beforeBody:
+          'The source slide presented every GROW stage, prompt, and example together. The redesign uses the same progressive pattern so learners focus on one stage at a time. Reusing the interaction pattern makes both frameworks easier to navigate.',
         before: mediaFromFile('before-grow-slide.png', {
           label: 'Original GROW slide',
           alt: 'Original instructor-led GROW diagram slide',
@@ -60,17 +92,15 @@ const DECISIONS = [
           label: 'GROW interactive reveal',
           alt: 'Redesigned eLearning GROW step reveal using the same pattern as OSCAR',
         }),
-        caption:
-          'The same reveal pattern applied to GROW: one design system, two frameworks',
       },
     ],
   },
   {
     number: '02',
     title: 'Practice that judges decisions',
-    lead: 'The original workshop had no equivalent to this: managers watched examples but never made a coaching decision themselves. Both frameworks now include a branching practice: coaching Sam with OSCAR and Priya with GROW. At every turn the learner chooses what they’d actually say, and every choice is judged with specific feedback. A weak option is named for exactly why it fails (a generalization, a defensive ‘why,’ a premature close) and loops back to try again.',
+    lead: 'The original workshop showed coaching examples but never asked managers to make the conversation decisions themselves. The redesign adds guided practice in OSCAR and GROW: learners choose what they would say, receive specific feedback, and retry choices that miss the mark.',
     outcome:
-      'The activity assesses conversational judgment, not acronym recall, and wrong answers teach.',
+      'The practice applies conversational judgment and turns weak choices into instruction.',
     figures: [
       {
         type: 'single',
@@ -95,25 +125,32 @@ const DECISIONS = [
   {
     number: '03',
     title: 'From passive reference to application and support',
-    lead: 'The original closed with a ‘typical situations’ slide managers read and slides that listed dozens of questions to scan in class. The redesign moves in both directions: application moves IN (a real-situations activity where the learner picks a scenario, chooses the right framework, writes their own opening line, and compares it to a model), while reference moves OUT of the required flow, into optional pop-ups and downloadable cards managers keep.',
+    lead: 'The original workshop asked managers to read situations and scan long question lists. The redesign separates the two: required practice based on real situations, while reference content becomes optional support learners can revisit during real coaching conversations.',
     outcome:
-      'The course ends as both rehearsal and a reusable toolkit, honoring its own ‘coaching in minutes’ promise.',
+      'Learners practice during the module and leave with support for the next real conversation.',
     figures: [
       {
-        type: 'pair',
+        type: 'stack',
+        beforeLead: 'From reading situations to making a coaching decision',
+        beforeBody:
+          'The original slide listed common coaching situations. The redesign asks learners to choose a realistic case, select an appropriate approach, write an opening line, and compare it with a model response.',
         before: mediaFromFile('before-situations-slide.png', {
           label: 'Original typical-situations slide',
           alt: 'Original instructor-led slide listing typical coaching situations',
         }),
-        after: mediaFromFile('after-situations-practice.mov', {
-          label: 'Real-situations practice',
-          alt: 'Redesigned eLearning activity where the learner chooses a situation and writes an opening question',
-        }),
-        caption:
-          'Reads a list of typical situations → chooses one, writes an opening question, and compares it to a model',
+        after: {
+          ...mediaFromFile('after-situations-practice.mov', {
+            label: 'Real-situations practice',
+            alt: 'Redesigned eLearning activity where the learner chooses a situation and writes an opening question',
+          }),
+          src: '/images/after-situations-practice.mov?v=20260719',
+        },
       },
       {
-        type: 'pair',
+        type: 'stack',
+        beforeLead: 'From question lists to optional exploration',
+        beforeBody:
+          'The original deck placed dozens of sample questions directly in the presentation. The redesign keeps them available without slowing the required learning path.',
         before: mediaFromFile('before-reference-content.png', {
           label: 'Original question-list slides',
           alt: 'Original instructor-led slides listing dozens of coaching questions',
@@ -122,17 +159,16 @@ const DECISIONS = [
           label: 'Optional reference pop-ups',
           alt: 'Redesigned eLearning optional pop-up exploration of coaching question types',
         }),
-        caption:
-          'Question lists dumped on slides → optional pop-up exploration, kept out of the required path',
       },
       {
-        type: 'single',
-        media: mediaFromFile('after-coaching-cards.mov', {
+        type: 'stack',
+        beforeLead: 'From course content to workplace support',
+        beforeBody:
+          'The OSCAR, questioning, and GROW references become downloadable cards managers can use during real coaching moments.',
+        after: mediaFromFile('after-coaching-cards.mov', {
           label: 'Downloadable coaching cards',
           alt: 'Downloadable OSCAR, questioning, and GROW coaching job-aid cards',
         }),
-        caption:
-          'The reference content’s final form: downloadable cards for the moment of need',
       },
     ],
   },
@@ -148,46 +184,61 @@ export default function DesignDecisions() {
       <div className="container">
         <header className="section-header section-header--readable">
           <p className="section-title">The Redesign</p>
-          <h2 id="decisions-title">Turning passive slides into practice</h2>
+          <h2 id="decisions-title">
+            Turning passive slides into{' '}
+            <strong className="insight-emphasis">practice</strong>.
+          </h2>
           <p>
-            The conversion answered each limitation of the live format, then
-            three deeper design moves shaped how managers actually practice.
+            The redesign preserved the original coaching content while changing
+            how managers access, practice, and apply it.
           </p>
         </header>
 
-        <div
-          className="compare"
-          role="group"
-          aria-label="Before and after comparison"
-        >
-          <div className="compare__col compare__col--before">
-            <h3>
-              <span className="ba-marker">Before</span>
-              Instructor-led workshop
-            </h3>
-            <ul className="plain-list">
-              {BEFORE.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="compare__col compare__col--after">
-            <h3>
-              <span className="ba-marker ba-marker--after">After</span>
-              Asynchronous redesign
-            </h3>
-            <ul className="plain-list">
-              {AFTER.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
+        <div className="redesign-themes">
+          {REDESIGN_THEMES.map((theme) => (
+            <div className="redesign-theme" key={theme.id}>
+              <p className="section-title redesign-theme__label">
+                {theme.label}
+              </p>
+              <div
+                className="compare"
+                role="group"
+                aria-label={`${theme.label}: before and after`}
+              >
+                <div className="compare__col compare__col--before">
+                  <h3>
+                    <span className="ba-marker">Before</span>
+                  </h3>
+                  <ul className="plain-list">
+                    {theme.before.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="compare__col compare__col--after">
+                  <h3>
+                    <span className="ba-marker ba-marker--after">After</span>
+                  </h3>
+                  <ul className="plain-list">
+                    {theme.after.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
         <p className="callout callout--quiet" role="note">
-          The redesigned course is shorter because presentation time and
-          repetition were removed, not because the learning substance was
-          removed.
+          <strong>Same substance, redesigned experience.</strong> The shorter
+          format comes from removing live-session logistics and repetition—not
+          from removing the core learning.
+        </p>
+
+        <p className="redesign-bridge">
+          The following three decisions show where that strategy made the
+          greatest difference.
         </p>
 
         <div className="decisions">
@@ -212,9 +263,9 @@ export default function DesignDecisions() {
               </header>
 
               <div className="decision__figures">
-                {d.figures.map((figure) => (
+                {d.figures.map((figure, index) => (
                   <DecisionFigure
-                    key={figure.caption}
+                    key={figure.beforeLead || figure.caption || figure.media?.src || index}
                     figure={figure}
                   />
                 ))}

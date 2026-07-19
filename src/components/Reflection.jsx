@@ -21,6 +21,31 @@ const NEXT = [
   'Accessibility testing, then package for an LMS',
 ]
 
+const NOTES = [
+  {
+    id: 'completed',
+    label: 'Note 1',
+    title: 'Completed',
+    tone: 'sage',
+    items: COMPLETED,
+  },
+  {
+    id: 'requires',
+    label: 'Note 2',
+    title: 'Requires a real organization',
+    tone: 'sky',
+    items: REQUIRES_ORG,
+  },
+  {
+    id: 'next',
+    label: 'Note 3',
+    title: 'What I’d do next',
+    tone: 'amber',
+    lead: 'The next moves are the production steps a real engagement adds:',
+    items: NEXT,
+  },
+]
+
 export default function Reflection() {
   return (
     <section id="reflection" className="section" aria-labelledby="reflection-title">
@@ -28,61 +53,47 @@ export default function Reflection() {
         <header className="section-header section-header--readable">
           <h2 id="reflection-title">What this project taught me</h2>
           <p>
-            My UX background helped me organize complex information, prototype
-            interactions, and design a clear interface.
+            My UX background helped me organize complex information and
+            prototype clear interactions. This project taught me to begin
+            earlier with a performance need, and align objectives, practice,
+            and feedback before designing the interface.
+          </p>
+          <p className="callout callout--quiet" role="note">
+            The hardest part was not writing answer choices. It was writing
+            feedback that could teach.
           </p>
           <p>
-            This project required me to go further: begin with a performance need,
-            define observable learning outcomes, align practice with those
-            outcomes, and write feedback that actively teaches.
+            In the Sam practice, every weak response had to fail for a
+            recognizable reason, such as generalizing, asking a defensive
+            ‘why,’ or closing the conversation too early. That is where an
+            interaction stops being a quiz and starts becoming instruction.
           </p>
           <p>
-            The sharpest lesson was in feedback design. Writing a wrong answer is
-            easy; writing feedback that turns a wrong choice into a moment of
-            learning is the craft. In the Sam scenario, each weak option had to
-            fail for a specific, nameable reason a manager would recognize from
-            their own conversations: a generalization, a defensive ‘why,’ a
-            premature close. That is where content layout becomes teaching.
-          </p>
-          <p>
-            An eLearning conversion is not successful because the original content
-            fits on a screen. It is successful when the new format provides a
-            better way for learners to understand, practice, and use the skill.
+            A successful conversion does more than fit existing content onto a
+            screen. It gives learners a better way to understand, practice, and
+            use the skill.
           </p>
         </header>
-      </div>
 
-      <div className="container">
-        <h3 className="storyboard-list-title">Where the project stands</h3>
-        <div className="two-col">
-          <div className="two-col__panel">
-            <h3>Completed</h3>
-            <ul className="plain-list">
-              {COMPLETED.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="two-col__panel">
-            <h3>Requires a real organization</h3>
-            <ul className="plain-list">
-              {REQUIRES_ORG.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="next-steps">
-          <h3>What I’d do next</h3>
-          <p>
-            The next moves are the production steps a real engagement adds:
-          </p>
-          <ul className="plain-list">
-            {NEXT.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+        <div className="sticky-notes" role="list">
+          {NOTES.map((note) => (
+            <article
+              className={`sticky-note sticky-note--${note.tone}`}
+              key={note.id}
+              role="listitem"
+            >
+              <header className="sticky-note__bar">
+                <span className="sticky-note__label">{note.label}</span>
+              </header>
+              <h3 className="sticky-note__title">{note.title}</h3>
+              {note.lead ? <p className="sticky-note__lead">{note.lead}</p> : null}
+              <ul className="sticky-note__list">
+                {note.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
       </div>
     </section>

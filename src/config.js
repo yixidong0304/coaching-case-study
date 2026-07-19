@@ -105,8 +105,8 @@ export const IMAGES = {
     {
       id: 'welcome',
       src: '/images/hero-course.png',
-      alt: 'Welcome screen stating the 15-minute learning commitment',
-      caption: 'Welcome and 15-minute commitment',
+      alt: 'Welcome screen stating the 30-minute learning commitment',
+      caption: 'Welcome and 30-minute commitment',
       filename: 'hero-course.png',
       dimensions: '1280 × 800',
     },
@@ -208,7 +208,7 @@ export const JOURNEY = [
   {
     stage: 'Introduction',
     summary:
-      'Reframe coaching as a different way of communicating rather than an additional task. Establish the approximately 15-minute commitment.',
+      'Reframe coaching as a different way of communicating rather than an additional task. Establish the approximately 30-minute commitment.',
     items: [],
   },
   {

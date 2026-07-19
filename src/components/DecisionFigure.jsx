@@ -12,14 +12,18 @@ export function mediaFromFile(filename, { label, alt, dimensions = '1280 × 800'
   }
 }
 
-function MediaSlot({ media, tag }) {
+function MediaSlot({ media, tag, fullWidth = false }) {
   const video = isVideoFilename(media.filename)
   const isAfter = tag === 'After'
   return (
     <div
       className={`decision-figure__slot${
-        tag ? (isAfter ? ' decision-figure__slot--after' : ' decision-figure__slot--before') : ''
-      }`}
+        tag
+          ? isAfter
+            ? ' decision-figure__slot--after'
+            : ' decision-figure__slot--before'
+          : ''
+      }${fullWidth ? ' decision-figure__slot--full' : ''}`}
     >
       {tag ? (
         <span className={`ba-marker${isAfter ? ' ba-marker--after' : ''}`}>
@@ -36,9 +40,49 @@ function MediaSlot({ media, tag }) {
 }
 
 /**
- * Renders a SINGLE media figure or a BEFORE/AFTER PAIR with caption.
+ * Renders a SINGLE media figure, a BEFORE/AFTER PAIR, or a 30/70
+ * transform comparison (diagnosis + before image | after media).
  */
 export default function DecisionFigure({ figure }) {
+  if (figure.type === 'stack') {
+    const hasBefore = Boolean(figure.before)
+
+    return (
+      <figure
+        className={`decision-figure decision-figure--stack${
+          hasBefore ? '' : ' decision-figure--stack-text'
+        }`}
+      >
+        <div className="decision-figure__split">
+          <div className="decision-figure__col decision-figure__col--before">
+            <div className="decision-figure__diagnosis">
+              <p className="decision-figure__diagnosis-lead">
+                {figure.beforeLead}
+              </p>
+              <p className="decision-figure__diagnosis-body">
+                {figure.beforeBody}
+              </p>
+            </div>
+            {hasBefore ? (
+              <div className="decision-figure__slot decision-figure__slot--before">
+                <span className="ba-marker">Before</span>
+                <ScreenshotImage {...figure.before} />
+              </div>
+            ) : null}
+          </div>
+
+          <div className="decision-figure__col decision-figure__col--after">
+            <MediaSlot
+              media={figure.after || figure.media}
+              tag="After"
+              fullWidth
+            />
+          </div>
+        </div>
+      </figure>
+    )
+  }
+
   const isPair = figure.type === 'pair'
 
   return (
@@ -51,7 +95,9 @@ export default function DecisionFigure({ figure }) {
       ) : (
         <MediaSlot media={figure.media} />
       )}
-      <figcaption className="decision-figure__caption">{figure.caption}</figcaption>
+      {figure.caption ? (
+        <figcaption className="decision-figure__caption">{figure.caption}</figcaption>
+      ) : null}
     </figure>
   )
 }

@@ -7,7 +7,7 @@
 **Instructional designer and prototype developer:** Cici Dong  
 **Audience:** New and mid-level managers  
 **Original format:** Two-hour virtual instructor-led workshop  
-**Redesigned format:** Approximately 15-minute responsive self-paced module  
+**Redesigned format:** Approximately 30-minute responsive self-paced module  
 
 All source branding, company names, and internal references are anonymized.
 
@@ -115,7 +115,7 @@ The asynchronous version responds directly to the limitations of the original fo
 
 | Instructor-led workshop | Asynchronous redesign |
 |---|---|
-| Two-hour scheduled session | Approximately 15 minutes |
+| Two-hour scheduled session | Approximately 30 minutes |
 | Repeated for each cohort | Available on demand |
 | Presenter-controlled pace | Learner-controlled and resumable |
 | Dense explanatory slides | Progressive, single-focus screens |
@@ -193,7 +193,7 @@ The conversion also uses several core principles:
 
 ### Introduction
 
-Reframe coaching as a different way of communicating rather than an additional task. Establish the approximately 15-minute commitment.
+Reframe coaching as a different way of communicating rather than an additional task. Establish the approximately 30-minute commitment.
 
 ### Part 1 — What is coaching?
 
@@ -387,7 +387,7 @@ Measure:
 
 - Relevance to managers’ daily work
 - Confidence using the coaching frameworks
-- Perception of the 15-minute format
+- Perception of the 30-minute format
 - Usefulness of the scenarios and job aids
 
 ### Level 2: Learning

@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import { COURSE_URL } from '../config'
 
 const LINKS = [
-  { href: '#problem', id: 'problem', label: 'Problem' },
-  { href: '#insight', id: 'insight', label: 'Insight' },
+  { href: '#problem', id: 'problem', label: 'Challenge' },
+  { href: '#insight', id: 'insight', label: 'The Learner' },
+  { href: '#approach', id: 'approach', label: 'Approach' },
   { href: '#objectives', id: 'objectives', label: 'Objectives' },
   { href: '#redesign', id: 'redesign', label: 'Redesign' },
   { href: '#evaluation', id: 'evaluation', label: 'Evaluation' },

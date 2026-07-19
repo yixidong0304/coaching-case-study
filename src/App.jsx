@@ -28,8 +28,8 @@ export default function App() {
         <Hero />
         <Challenge />
         <Analysis />
-        <Objectives />
         <Approach />
+        <Objectives />
         <DesignDecisions />
         <Evaluation />
         <Reflection />
