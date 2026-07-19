@@ -2,15 +2,21 @@ import { useEffect, useState } from 'react'
 import { COURSE_URL } from '../config'
 
 const LINKS = [
-  { href: '#overview', label: 'Overview' },
-  { href: '#design-decisions', label: 'Design Decisions' },
-  { href: '#final-experience', label: 'Final Experience' },
-  { href: '#evaluation', label: 'Evaluation' },
+  { href: '#problem', id: 'problem', label: 'Problem' },
+  { href: '#insight', id: 'insight', label: 'Insight' },
+  { href: '#objectives', id: 'objectives', label: 'Objectives' },
+  { href: '#redesign', id: 'redesign', label: 'Redesign' },
+  { href: '#evaluation', id: 'evaluation', label: 'Evaluation' },
+  { href: '#reflection', id: 'reflection', label: 'Reflection' },
 ]
+
+const PORTFOLIO_HOME = 'https://cicidong.com/'
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [active, setActive] = useState('#problem')
+  const [logoFailed, setLogoFailed] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -26,14 +32,59 @@ export default function Nav() {
     }
   }, [open])
 
+  useEffect(() => {
+    const elements = LINKS.map(({ id }) => document.getElementById(id)).filter(
+      Boolean
+    )
+    if (!elements.length) return undefined
+
+    const ratios = new Map()
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          ratios.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0)
+        })
+
+        let bestId = null
+        let bestRatio = 0
+        ratios.forEach((ratio, id) => {
+          if (ratio > bestRatio) {
+            bestRatio = ratio
+            bestId = id
+          }
+        })
+
+        if (bestId) setActive(`#${bestId}`)
+      },
+      {
+        root: null,
+        rootMargin: '-30% 0px -45% 0px',
+        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
+      }
+    )
+
+    elements.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
   const close = () => setOpen(false)
 
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <div className="site-header__inner">
-        <a className="site-brand" href="#top" onClick={close}>
+        <a className="site-brand" href={PORTFOLIO_HOME} onClick={close}>
+          {!logoFailed && (
+            <img
+              className="site-brand__mark"
+              src="/images/logo.png"
+              alt=""
+              width={28}
+              height={28}
+              onError={() => setLogoFailed(true)}
+            />
+          )}
           <span className="site-brand__name">Cici Dong</span>
-          <span className="site-brand__role">Instructional Design</span>
         </a>
 
         <button
@@ -57,7 +108,12 @@ export default function Nav() {
           <ul className="site-nav__list">
             {LINKS.map((link) => (
               <li key={link.href}>
-                <a href={link.href} onClick={close}>
+                <a
+                  href={link.href}
+                  className={active === link.href ? 'is-active' : undefined}
+                  aria-current={active === link.href ? 'location' : undefined}
+                  onClick={close}
+                >
                   {link.label}
                 </a>
               </li>

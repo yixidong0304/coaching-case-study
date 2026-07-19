@@ -6,10 +6,13 @@
  */
 
 /** @replace Course module URL — Experience the course / View Course CTAs */
-export const COURSE_URL = 'COURSE_URL_PLACEHOLDER'
+export const COURSE_URL = 'https://coaching-skills-module.vercel.app'
+
+/** @replace Full process report URL — Read the full process report CTA */
+export const REPORT_URL = ''
 
 /** @replace Portfolio home URL — Back to portfolio CTA */
-export const PORTFOLIO_URL = 'PORTFOLIO_URL_PLACEHOLDER'
+export const PORTFOLIO_URL = 'https://cicidong.com/'
 
 /**
  * Gallery & screenshot image paths.
@@ -17,16 +20,24 @@ export const PORTFOLIO_URL = 'PORTFOLIO_URL_PLACEHOLDER'
  * Missing files show a polished placeholder with recommended dimensions.
  *
  * Recommended dimensions:
- * - hero-course.png:              1280 × 800
- * - coaching-directing.png:       1280 × 800
- * - oscar-step-through.png:       1280 × 800
- * - oscar-scenario.png:           1280 × 800
- * - grow-scenario.png:            1280 × 800
- * - coaching-cards.png:           1280 × 800
- * - storyboard-excerpt.png:       1280 × 900
- * - source-slide-sequence.png:    1280 × 720  (Original ILT collage — keep visually secondary)
- * - redesigned-learning-flow.png: 1280 × 800  (Redesigned eLearning sequence collage)
- * - coaching-directing-check.png: 1280 × 900  (Two-item knowledge check + feedback)
+ * - hero-course.png:                 1280 × 800
+ * Design decision media (public/images/):
+ * - before-oscar-slide.png
+ * - after-oscar-meet.mov
+ * - before-oscar-example.png
+ * - after-oscar-stepthrough.mov
+ * - before-grow-slide.png
+ * - after-grow-meet.png
+ * - after-sam-feedback.mov
+ * - after-grow-feedback.mov
+ * - before-situations-slide.png
+ * - after-situations-practice.mov
+ * - before-reference-content.png
+ * - after-reference-popups.mov
+ * - after-coaching-cards.mov
+ *
+ * Video: .mov or .mp4 — autoplay, loop, muted, playsInline.
+ * Image: static screenshot via ScreenshotImage when present.
  */
 export const IMAGES = {
   hero: {
@@ -34,7 +45,7 @@ export const IMAGES = {
     alt: 'Course interface welcome screen for Coaching Skills for Managers',
     label: 'Course interface screenshot',
     filename: 'hero-course.png',
-    dimensions: '1280 × 800',
+    dimensions: '1600 × 833',
   },
   /**
    * Content architecture section: ILT source → redesigned flow → knowledge check.
@@ -43,7 +54,7 @@ export const IMAGES = {
   contentArchitecture: {
     sourceSlides: {
       src: '/images/source-slide-sequence.png',
-      alt: 'Original instructor-led PowerPoint slides on coaching definitions, attitude, and manager-versus-coach distinction — labeled Original ILT source',
+      alt: 'Original instructor-led PowerPoint slides on coaching definitions, attitude, and manager-versus-coach distinction, labeled Original ILT source',
       label: 'Original ILT source collage',
       filename: 'source-slide-sequence.png',
       dimensions: '1280 × 720',
@@ -149,44 +160,46 @@ export const IMAGES = {
   },
 }
 
-/** Learning objectives and alignment — from content-source.md */
+/** Learning objectives and alignment — Define Success section */
 export const OBJECTIVES = [
   {
     id: 1,
-    objective:
-      'Distinguish coaching from directing and identify when each is appropriate.',
-    bloom: 'Understand / Analyze',
+    objective: 'Distinguish coaching from directing.',
+    bloom: ['Understand', 'Analyze'],
     evidence: 'Scenario-based coaching-or-directing knowledge check.',
+    icon: 'check',
   },
   {
     id: 2,
-    objective: 'Apply OSCAR to structure a feedback conversation.',
-    bloom: 'Apply',
+    objective: 'Apply OSCAR framework to structure feedback',
+    bloom: ['Apply'],
     evidence:
-      'Progressive worked example followed by a multi-turn branching practice conversation.',
+      'Progressive worked example and multi-turn branching practice conversation.',
+    icon: 'branch',
   },
   {
     id: 3,
-    objective:
-      'Formulate powerful open questions using clarifying, challenging, commitment-gaining, and listening question types.',
-    bloom: 'Apply',
+    objective: 'Formulate powerful questions',
+    bloom: ['Apply'],
     evidence:
       'Question-type matching practice and a reusable question library.',
+    icon: 'question',
   },
   {
     id: 4,
-    objective: 'Use GROW to run a short coaching conversation.',
-    bloom: 'Apply',
+    objective: 'Use GROW framework to run conversation.',
+    bloom: ['Apply'],
     evidence:
       'Four-stage guided coaching conversation with feedback on every selection.',
+    icon: 'stages',
   },
   {
     id: 5,
-    objective:
-      'Select an appropriate coaching approach for common management situations.',
-    bloom: 'Analyze / Evaluate',
+    objective: 'Select the right coaching approach.',
+    bloom: ['Analyze', 'Evaluate'],
     evidence:
       'Real-situation scenario selector and comparison with a model response.',
+    icon: 'compare',
   },
 ]
 
@@ -199,7 +212,7 @@ export const JOURNEY = [
     items: [],
   },
   {
-    stage: 'Part 1 — What is coaching?',
+    stage: 'Part 1: What is coaching?',
     summary: '',
     items: [
       'Coaching versus directing',
@@ -209,7 +222,7 @@ export const JOURNEY = [
     ],
   },
   {
-    stage: 'Part 2 — How to coach',
+    stage: 'Part 2: How to coach',
     summary: '',
     subsections: [
       {
@@ -235,7 +248,7 @@ export const JOURNEY = [
     ],
   },
   {
-    stage: 'Part 3 — Coaching in real life',
+    stage: 'Part 3: Coaching in real life',
     summary: '',
     items: [
       'Introduce GROW',

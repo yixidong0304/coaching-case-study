@@ -1,78 +1,44 @@
-import { COURSE_URL, IMAGES } from '../config'
+import { COURSE_URL, REPORT_URL, IMAGES } from '../config'
 import ScreenshotImage from './ScreenshotImage'
 
-const META = [
-  { label: 'Course', value: 'Coaching Skills for Managers' },
-  {
-    label: 'Project type',
-    value:
-      'Instructor-led training to self-paced asynchronous eLearning conversion',
-  },
+const TAGS = [
+  '10 min read',
+  'ILT → eLearning Conversion',
+  'Instructional Design',
+]
+
+const OVERVIEW = [
+  { label: 'Time', value: 'July 2026' },
   {
     label: 'Role',
-    value: 'Instructional designer and prototype developer',
-  },
-  { label: 'Audience', value: 'New and mid-level managers' },
-  {
-    label: 'Original format',
-    value: 'Two-hour virtual instructor-led workshop',
+    value: 'Instructional design + interactive eLearning development',
   },
   {
-    label: 'Redesigned format',
-    value: 'Approximately 15-minute responsive self-paced module',
+    label: 'Tools',
+    value: 'Figma, Codex, Cursor, Microsoft 365',
   },
 ]
 
-const FRAMEWORKS = [
-  'Coaching versus directing',
-  'OSCAR for feedback conversations',
-  'Listening, powerful questions, and GROW',
-]
-
-export default function Hero({ onImageClick }) {
+export default function Hero() {
   return (
     <section id="top" className="hero section" aria-labelledby="hero-title">
       <div className="container hero__grid">
         <div className="hero__copy">
-          <p className="eyebrow">Instructional Design Case Study</p>
-          <h1 id="hero-title">From Instructor-Led to Self-Paced</h1>
+          <p className="section-title">Coaching Skills for Managers</p>
+          <h1 id="hero-title">From a 2-Hour Workshop to a 30-Minute Course</h1>
           <p className="lede">
-            Redesigning a two-hour leadership workshop as a 15-minute,
-            practice-based asynchronous learning experience.
-          </p>
-          <p className="hero__desc">
-            Coaching Skills for Managers was originally delivered as a live,
-            facilitator-led corporate workshop. It introduced managers to three
-            central areas. The redesign preserves the substance of those
-            frameworks but changes how managers encounter and practice them.
+            Transforming an instructor-led workshop into a self-paced eLearning
+            course with interactive practice, realistic scenarios, and practical
+            coaching tools for everyday conversations.
           </p>
 
-          <ul className="hero__frameworks">
-            {FRAMEWORKS.map((item) => (
-              <li key={item}>{item}</li>
+          <ul className="hero__tags" aria-label="Project tags">
+            {TAGS.map((tag) => (
+              <li key={tag}>
+                <span className="hero__chip">{tag}</span>
+              </li>
             ))}
           </ul>
-
-          <p className="hero__desc">
-            The goal was not to put a workshop online. It was to transform a
-            two-hour presentation into a concise learning experience that
-            managers could complete on demand, practice through realistic
-            decisions, and revisit when real conversations happened.
-          </p>
-
-          <dl className="meta-list">
-            {META.map((item) => (
-              <div className="meta-list__item" key={item.label}>
-                <dt>{item.label}</dt>
-                <dd>{item.value}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <p className="hero__note">
-            All source branding, company names, and internal references are
-            anonymized.
-          </p>
 
           <div className="hero__actions">
             <a
@@ -81,10 +47,15 @@ export default function Hero({ onImageClick }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Experience the course
+              View course
             </a>
-            <a className="btn btn--ghost" href="#overview">
-              Explore the design process
+            <a
+              className="btn btn--ghost"
+              href={REPORT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read the report
             </a>
           </div>
         </div>
@@ -92,9 +63,18 @@ export default function Hero({ onImageClick }) {
         <div className="hero__visual">
           <ScreenshotImage
             {...IMAGES.hero}
-            onClick={onImageClick}
+            aspect="1600 / 833"
             className="hero__shot"
           />
+
+          <dl className="meta-list hero__overview">
+            {OVERVIEW.map((item) => (
+              <div className="meta-list__item" key={item.label}>
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>
