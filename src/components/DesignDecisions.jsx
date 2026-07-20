@@ -244,7 +244,11 @@ export default function DesignDecisions() {
         <div className="decisions">
           {DECISIONS.map((d) => (
             <article
-              className="decision decision--stack"
+              className={`decision decision--stack${
+                d.figures.every((f) => f.type === 'single')
+                  ? ' decision--singles'
+                  : ''
+              }`}
               key={d.number}
               aria-labelledby={`decision-${d.number}-title`}
             >

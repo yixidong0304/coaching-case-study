@@ -7,9 +7,9 @@ const LEVELS = [
   },
   {
     level: 'Level 2 · Learning',
-    question: 'Can managers make sound coaching decisions?',
+    question: 'Can managers make proper coaching decisions?',
     description:
-      'Evidence comes from the built-in coaching-versus-directing check, OSCAR and GROW conversations, question activities, and integrated real-situation practice.',
+      'The required practice in the course, OSCAR and GROW conversations, question activities, and integrated real-situation practice, would generate the evidence for this, so assessment is part of the experience rather than a separate final test.',
   },
   {
     level: 'Level 3 · Behavior',
@@ -38,16 +38,9 @@ export default function Evaluation() {
           <h2 id="evaluation-title">Evaluation, built in, not bolted on</h2>
           <p>
             Because the module has not yet been implemented in a real
-            organization, the following are proposed measures—not reported
-            outcomes.
+            organization, the following are my proposed measures:
           </p>
         </header>
-
-        <p className="callout callout--quiet" role="note">
-          The required practice already generates Level 2 learning evidence, so
-          assessment is part of the experience rather than a separate final
-          test.
-        </p>
 
         <div className="eval-grid">
           {LEVELS.map((level) => (

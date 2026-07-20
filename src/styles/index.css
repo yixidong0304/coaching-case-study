@@ -270,22 +270,23 @@ a:hover {
 }
 
 .approach-header {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .approach-header h2 {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .approach-process {
   width: 100%;
+  margin-top: var(--space-xl);
 }
 
 .approach-path {
   --approach-gap: 2rem; /* 32px */
   --approach-icon: 3.25rem;
   list-style: none;
-  margin: var(--space-lg) 0 0;
+  margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -590,10 +591,6 @@ a:hover {
 .decision__outcome-banner {
   background: var(--banner-fill);
   border-left-color: var(--forest);
-}
-
-.decision__outcome-banner {
-  margin-top: 0;
 }
 
 .callout--quiet {
@@ -1431,15 +1428,15 @@ a:hover {
 }
 
 .analysis-intro {
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
 }
 
 .analysis-group {
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
 }
 
 .analysis-group--org {
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
 }
 
 .analysis-group__heading {
@@ -2085,15 +2082,20 @@ a:hover {
 .decisions {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xl);
+  gap: calc(var(--space-2xl) * 1.5);
   margin-top: var(--space-2xl);
 }
 
 .decision--stack {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: 0;
   grid-template-columns: none;
+}
+
+.decision--stack + .decision--stack {
+  border-top: 2px solid rgba(27, 67, 50, 0.15);
+  padding-top: var(--space-2xl);
 }
 
 .decision__header {
@@ -2107,13 +2109,13 @@ a:hover {
 }
 
 .decision__outcome-banner {
-  margin-top: var(--space-sm);
-  margin-bottom: 0;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-lg);
   max-width: none;
 }
 
 .decision__title-text {
-  margin: 0 0 var(--space-sm);
+  margin: 0 0 var(--space-md);
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 2.4vw, 1.75rem);
   font-weight: 600;
@@ -2127,7 +2129,7 @@ a:hover {
   color: var(--muted);
   max-width: none;
   width: 100%;
-  margin: 0 0 var(--space-sm);
+  margin: 0 0 var(--space-md);
   font-size: var(--body-size);
   line-height: var(--body-leading);
 }
@@ -2135,13 +2137,27 @@ a:hover {
 .decision__figures {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: var(--space-2xl);
+  margin-top: var(--space-lg);
   width: 100%;
+}
+
+.decision--singles .decision__figures {
+  gap: var(--space-xl);
 }
 
 .decision-figure {
   margin: 0;
   width: 100%;
+}
+
+.decision-figure + .decision-figure {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: var(--space-2xl);
+}
+
+.decision--singles .decision-figure + .decision-figure {
+  padding-top: var(--space-xl);
 }
 
 .decision-figure__pair {
@@ -2168,7 +2184,7 @@ a:hover {
 .decision-figure__col {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-md);
   align-items: flex-start;
   min-width: 0;
   width: 100%;
@@ -2207,14 +2223,15 @@ a:hover {
 .decision-figure__diagnosis {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
   width: 100%;
 }
 
 .decision-figure__diagnosis-lead {
   margin: 0;
   font-family: var(--font);
-  font-size: var(--card-text-size);
+  font-size: var(--section-title-size);
   font-weight: 700;
   line-height: 1.35;
   color: var(--ink);
@@ -2427,13 +2444,14 @@ a:hover {
 .eval-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-5);
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
   margin-bottom: 0;
 }
 
 .eval-card h3 {
   color: var(--forest);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
   font-size: 1rem;
 }
 

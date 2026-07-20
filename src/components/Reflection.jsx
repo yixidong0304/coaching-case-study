@@ -53,25 +53,25 @@ export default function Reflection() {
         <header className="section-header section-header--readable">
           <h2 id="reflection-title">What this project taught me</h2>
           <p>
-            My UX background helped me organize complex information and
-            prototype clear interactions. This project taught me to begin
-            earlier with a performance need, and align objectives, practice,
-            and feedback before designing the interface.
-          </p>
-          <p className="callout callout--quiet" role="note">
-            The hardest part was not writing answer choices. It was writing
-            feedback that could teach.
+            Coming from UX, I was already comfortable organizing complex
+            information and prototyping interactions. What this project taught
+            me most is organizing content through an instructional design
+            lens: start from a performance need, write measurable objectives,
+            and align every practice activity and piece of feedback to those
+            objectives before touching the interface.
           </p>
           <p>
-            In the Sam practice, every weak response had to fail for a
-            recognizable reason, such as generalizing, asking a defensive
-            ‘why,’ or closing the conversation too early. That is where an
-            interaction stops being a quiz and starts becoming instruction.
+            The most challenging and instructive part was the feedback design.
+            In the Sam practice, each weak answer had to fail for a specific,
+            recognizable reason a manager would know from their own
+            conversations, such as generalizing, asking a defensive "why,"
+            or closing the discussion too early. Writing feedback at that level
+            is what separates a quiz from actual instruction.
           </p>
           <p>
-            A successful conversion does more than fit existing content onto a
-            screen. It gives learners a better way to understand, practice, and
-            use the skill.
+            Fitting existing content onto a screen is the easy part. The real
+            work is giving learners a genuinely better way to understand a
+            skill, practice it, and use it when it matters.
           </p>
         </header>
 
