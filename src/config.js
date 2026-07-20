@@ -9,7 +9,8 @@
 export const COURSE_URL = 'https://coaching-skills-module.vercel.app'
 
 /** @replace Full process report URL — Read the full process report CTA */
-export const REPORT_URL = ''
+export const REPORT_URL =
+  'https://docs.google.com/document/d/1NWSCITZQrZP3ScsdljkmM4gnujrqIHW0RmFZnpQYFN0/edit?usp=sharing'
 
 /** @replace Portfolio home URL — Back to portfolio CTA */
 export const PORTFOLIO_URL = 'https://cicidong.com/'
